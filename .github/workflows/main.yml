@@ -44,7 +44,7 @@ jobs:
         run: terraform plan -no-color
 
       - name: Terraform Apply
-        run: terraform apply -no-color -auto-apporove
+        run: terraform apply -no-color -auto-approve
 
       # Publish Assets
       - name: Upload kubeconfig file
