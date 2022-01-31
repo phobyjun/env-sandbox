@@ -45,3 +45,12 @@ module "aws-eks" {
   nodegroup_max_size       = 3
 }
 # GitOps Configuration
+module "argo-cd-server" {
+  source = "github.com/phobyjun/module-argo-cd"
+
+  kubernetes_cluster_id        = module.aws-eks.eks_cluster_id
+  kubernetes_cluster_name      = module.aws-eks.eks_cluster_name
+  kubernetes_cluster_cert_data = module.aws-eks.eks_cluster_cert_data
+  kubernetes_cluster_endpoint  = module.aws-eks.eks_cluster_endpoint
+  eks_nodegroup_id             = module.aws-eks.eks_cluster_nodegroup_id
+}
